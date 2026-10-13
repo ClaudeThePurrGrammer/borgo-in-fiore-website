@@ -210,18 +210,19 @@ address { font-style: normal; color: var(--muted); }
 /* Mobile: tutto qui dentro vale solo sotto gli 860px, il desktop non cambia */
 @media (max-width: 860px) {
   a, button { -webkit-tap-highlight-color: transparent; }
-  .nav-links { display: none; }
   .intro, .contatti, .facts { grid-template-columns: 1fr; }
   .intro .inset { aspect-ratio: 16 / 10; }
 
   /* barra a tutta larghezza, logo a sinistra, azione a destra */
   .nav-wrap { inset: 0.65rem 0 auto; padding-inline: 0.65rem; }
-  .nav { width: 100%; padding: 0.35rem 0.4rem 0.35rem 0.4rem; }
+  .nav { width: 100%; padding: 0.35rem 0.4rem 0.35rem 0.4rem; flex-wrap: wrap; row-gap: 0; }
+  /* link su una seconda riga, sempre tutti visibili */
+  .nav-links { order: 3; width: 100%; justify-content: space-around; gap: 0.5rem; padding-bottom: 0.2rem; font-size: 0.9rem; }
   .logo-circle { width: 52px; height: 52px; padding: 7px; }
   .nav .btn { padding: 0.7rem 1.15rem; font-size: 0.9rem; }
 
   /* hero: testo più compatto, pulsanti comodi da toccare */
-  .hero-copy { width: calc(100% - 2.5rem); padding-block: 6rem 1.75rem; gap: 1rem; }
+  .hero-copy { width: calc(100% - 2.5rem); padding-block: 8rem 1.75rem; gap: 1rem; }
   .actions { width: 100%; flex-direction: column; gap: 0.6rem; }
   .actions .btn { width: 100%; min-height: 3.1rem; }
 
