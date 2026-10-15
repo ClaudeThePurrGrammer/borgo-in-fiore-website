@@ -2,47 +2,74 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b0e14">
 <title>Borgo in Fiore | Sala ricevimenti a Terlizzi (BA)</title>
 <meta name="description" content="Borgo in Fiore, sala ricevimenti a Terlizzi (BA): matrimoni, battesimi, comunioni, compleanni e feste. Sala, zona piscina e corte salentina, cucina mediterranea.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
 <meta property="og:title" content="Borgo in Fiore | Sala ricevimenti a Terlizzi">
 <meta property="og:description" content="Matrimoni, battesimi, comunioni e feste tra palme illuminate, piscina e corte salentina.">
-<meta property="og:image" content="assets/675541598_1841074627263019_4390162280220839442_n.jpg">
+<meta property="og:image" content="assets/img/zona-piscina.webp">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta name="theme-color" content="#0b0e14">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="preload" href="assets/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/img/bg-hero.webp" as="image" fetchpriority="high">
+<link rel="stylesheet" href="css/style.css?v=5">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EventVenue",
+  "name": "Borgo in Fiore",
+  "description": "Sala ricevimenti con sala, zona piscina e corte salentina a Terlizzi (BA). Matrimoni, battesimi, comunioni, compleanni e feste, con cucina mediterranea.",
+  "telephone": "+393397071801",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "SP 56 km 7,070 (Molfetta - Ruvo di Puglia)",
+    "postalCode": "70038",
+    "addressLocality": "Terlizzi",
+    "addressRegion": "BA",
+    "addressCountry": "IT"
+  },
+  "hasMap": "https://maps.app.goo.gl/mKuBH1JZo2zrpnsy7",
+  "sameAs": [
+    "https://www.instagram.com/borgoinfioreterlizzi/",
+    "https://www.facebook.com/borgoinfioreterlizzi/"
+  ]
+}
+</script>
 </head>
 <body>
 
 <a href="#spazi" class="skip">Vai ai contenuti</a>
+<div class="progress" aria-hidden="true"></div>
 
-<!-- Sfondo fisso: cambia foto in base alla sezione visibile -->
+<!-- Sfondo fisso: la foto cambia in base alla sezione visibile -->
 <div class="bg" aria-hidden="true">
-  <img class="on" src="assets/ChatGPT%20Image%202%20ago%202026%2C%2016_32_55.png" alt="" width="1670" height="942" fetchpriority="high">
-  <img src="assets/498224736_1537820167588468_5849240935294033514_n.jpg" alt="" width="1600" height="762">
-  <img src="assets/476910412_1452061686164317_9077856765042729712_n.jpg" alt="" width="1440" height="754">
-  <img src="assets/1.jpg" alt="" width="1600" height="723">
-  <img src="assets/758896603_1578591967144572_505424246421738127_n.jpg" alt="" width="1600" height="1067">
-  <img src="assets/bg-cancello.jpg" alt="" width="1982" height="1092">
+  <img class="on" src="assets/img/bg-hero.webp" alt="" width="1670" height="942" fetchpriority="high">
+  <img src="assets/img/bg-borgo.webp" alt="" width="1600" height="762" loading="lazy">
+  <img src="assets/img/bg-sera.webp" alt="" width="1440" height="754" loading="lazy">
+  <img src="assets/img/bg-giardino.webp" alt="" width="1600" height="723" loading="lazy">
+  <img src="assets/img/bg-tavola.webp" alt="" width="1600" height="1067" loading="lazy">
+  <img src="assets/img/bg-cancello.webp" alt="" width="1920" height="1058" loading="lazy">
   <div class="bg-tint"></div>
 </div>
 
 <header class="nav-wrap">
   <nav class="nav glass-bar" aria-label="Navigazione principale">
-    <a href="#top" class="wordmark" aria-label="Borgo in Fiore, torna in alto"><span class="logo-circle"><img src="assets/logo%20grezzo.webp" alt="" width="64" height="64"></span></a>
-    <ul class="nav-links">
+    <a href="#top" class="wordmark" aria-label="Borgo in Fiore, torna in alto"><span class="logo-circle"><img src="assets/img/logo.webp" alt="" width="64" height="64"></span></a>
+    <ul class="nav-links" id="menu">
       <li><a href="#spazi">Spazi</a></li>
       <li><a href="#eventi">Eventi</a></li>
       <li><a href="#cucina">Cucina</a></li>
+      <li><a href="#richiesta">Richiedi</a></li>
       <li><a href="#contatti">Dove siamo</a></li>
     </ul>
     <a href="tel:+393397071801" class="btn btn-solid btn-sm">Prenota<span class="lg"> una visita</span></a>
+    <button class="burger" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
   </nav>
 </header>
 
@@ -57,27 +84,28 @@
       </div>
       <p class="hero-sub">Sala ricevimenti a Terlizzi. Palme illuminate, piscina e corte salentina per le feste che contano.</p>
       <div class="actions">
-        <a href="tel:+393397071801" class="btn btn-solid">Prenota una visita <span class="btn-arrow" aria-hidden="true">&#8599;</span></a>
+        <a href="tel:+393397071801" class="btn btn-solid btn-shimmer">Prenota una visita <span class="btn-arrow" aria-hidden="true">&#8599;</span></a>
         <a href="#spazi" class="btn btn-glass">Scopri gli spazi</a>
       </div>
     </div>
+    <a href="#intro" class="scroll-cue" aria-label="Scorri alla prossima sezione"><span></span></a>
   </section>
 
-  <!-- INTRO: pannello vetro con foto incassata -->
-  <section class="block wrap" data-bg="1">
-    <div class="glass intro reveal">
+  <!-- INTRO -->
+  <section class="block wrap" id="intro" data-bg="1">
+    <div class="glass spot intro reveal">
       <div class="intro-copy">
         <span class="kicker">La tenuta</span>
         <p class="intro-text">Una tenuta di campagna alle porte di Terlizzi, pensata per un giorno intero: <em>l'aperitivo sotto le luci</em>, <em>la cena in sala</em>, <em>la musica a bordo piscina</em>.</p>
       </div>
       <figure class="intro-fig">
-        <img class="inset" src="assets/701254844_1865524698151345_3499816407530299283_n.jpg" alt="La scalinata illuminata che porta alla corte, al calar della sera" width="1024" height="944" loading="lazy">
+        <img class="inset" src="assets/img/tenuta-scalinata.webp" alt="La scalinata illuminata che porta alla corte, al calar della sera" width="1000" height="922" loading="lazy">
         <figcaption class="glass-bar">Terlizzi, Bari</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- SPAZI: rail di card in vetro -->
+  <!-- SPAZI -->
   <section class="block spazi" id="spazi" data-bg="2">
     <div class="wrap head reveal">
       <h2>Tre ambienti, una sola tenuta.</h2>
@@ -85,7 +113,7 @@
     <div class="wrap">
       <div class="glass catalog reveal">
         <article class="item on" tabindex="0">
-          <img src="assets/ChatGPT%20Image%202%20ago%202026%2C%2016_16_40.png" alt="La corte salentina con pergola, ulivo illuminato di blu e divani bianchi" width="1866" height="843" loading="lazy">
+          <img src="assets/img/corte-salentina.webp" alt="La corte salentina con pergola, ulivo illuminato di blu e divani bianchi" width="1400" height="632" loading="lazy">
           <span class="pill"><b>01</b>Corte Salentina</span>
           <div class="item-text">
             <span class="num">01</span>
@@ -95,7 +123,7 @@
           </div>
         </article>
         <article class="item" tabindex="0">
-          <img src="assets/673728211_1839396420764173_5175422886015201856_n.jpg" alt="La zona piscina di sera, con la sala ad archi che si riflette nell'acqua" width="949" height="701" loading="lazy">
+          <img src="assets/img/zona-piscina.webp" alt="La zona piscina di sera, con la sala ad archi che si riflette nell'acqua" width="949" height="701" loading="lazy">
           <span class="pill"><b>02</b>Zona Piscina</span>
           <div class="item-text">
             <span class="num">02</span>
@@ -105,7 +133,7 @@
           </div>
         </article>
         <article class="item" tabindex="0">
-          <img src="assets/462c7ab5-efd4-4c7c-94ff-6acf03f5ebc7.png" alt="La sala interna con tavoli imperiali, pareti in pietra e luci sospese" width="1817" height="866" loading="lazy">
+          <img src="assets/img/sala.webp" alt="La sala interna con tavoli imperiali, pareti in pietra e luci sospese" width="1400" height="667" loading="lazy">
           <span class="pill"><b>03</b>Sala</span>
           <div class="item-text">
             <span class="num">03</span>
@@ -118,34 +146,34 @@
     </div>
   </section>
 
-  <!-- EVENTI: selettore con anteprima -->
+  <!-- EVENTI -->
   <section class="block wrap" id="eventi" data-bg="3">
     <div class="glass events reveal">
       <div class="ev-left">
         <h2>Ogni festa ha il suo tavolo.</h2>
         <div class="ev-dock">
-        <p class="ev-desc" aria-live="polite"></p>
-        <ul class="ev-list">
-          <li><button class="ev on" type="button" data-i="0" aria-pressed="true"><span class="ev-n">01</span><h3>Matrimoni</h3><span class="ev-more"><span>Dal pranzo alla serata, in giardino o in sala.</span></span></button></li>
-          <li><button class="ev" type="button" data-i="1" aria-pressed="false"><span class="ev-n">02</span><h3>Battesimi e comunioni</h3><span class="ev-more"><span>Cerimonie e pranzi di famiglia, con torta e allestimento.</span></span></button></li>
-          <li><button class="ev" type="button" data-i="2" aria-pressed="false"><span class="ev-n">03</span><h3>Compleanni e anniversari</h3><span class="ev-more"><span>Dai diciotto anni alle ricorrenze di una vita.</span></span></button></li>
-          <li><button class="ev" type="button" data-i="3" aria-pressed="false"><span class="ev-n">04</span><h3>Ogni altra occasione</h3><span class="ev-more"><span>Raccontaci cosa festeggi, ne parliamo insieme.</span></span></button></li>
-        </ul>
+          <p class="ev-desc" aria-live="polite"></p>
+          <ul class="ev-list">
+            <li><button class="ev on" type="button" data-tipo="Matrimonio" aria-pressed="true"><span class="ev-n">01</span><h3>Matrimoni</h3><span class="ev-more"><span>Dal pranzo alla serata, in giardino o in sala.</span></span></button></li>
+            <li><button class="ev" type="button" data-tipo="Battesimo o comunione" aria-pressed="false"><span class="ev-n">02</span><h3>Battesimi e comunioni</h3><span class="ev-more"><span>Cerimonie e pranzi di famiglia, con torta e allestimento.</span></span></button></li>
+            <li><button class="ev" type="button" data-tipo="Compleanno o anniversario" aria-pressed="false"><span class="ev-n">03</span><h3>Compleanni e anniversari</h3><span class="ev-more"><span>Dai diciotto anni alle ricorrenze di una vita.</span></span></button></li>
+            <li><button class="ev" type="button" data-tipo="Altra occasione" aria-pressed="false"><span class="ev-n">04</span><h3>Ogni altra occasione</h3><span class="ev-more"><span>Raccontaci cosa festeggi, ne parliamo insieme.</span></span></button></li>
+          </ul>
         </div>
       </div>
       <div class="ev-view" aria-hidden="true">
         <span class="ev-count"><b id="ev-now">01</b> / 04</span>
-        <img class="on" src="assets/498542611_1537820120921806_4130417153692847420_n.jpg" alt="" width="1600" height="806" loading="lazy">
-        <img src="assets/ev-battesimi.jpg" alt="" width="2048" height="1908" loading="lazy">
-        <img src="assets/ev-compleanni.jpg" alt="" width="2048" height="1878" loading="lazy">
-        <img src="assets/756227266_749641184909458_1782108030710818787_n.jpg" alt="" width="1600" height="967" loading="lazy">
+        <img class="on" src="assets/img/ev-matrimoni.webp" alt="" width="1400" height="705" loading="lazy">
+        <img src="assets/img/ev-battesimi.webp" alt="" width="1400" height="1304" loading="lazy">
+        <img src="assets/img/ev-compleanni.webp" alt="" width="1400" height="1284" loading="lazy">
+        <img src="assets/img/ev-altro.webp" alt="" width="1400" height="846" loading="lazy">
       </div>
     </div>
   </section>
 
   <!-- CUCINA -->
   <section class="block wrap" id="cucina" data-bg="4">
-    <div class="glass cucina reveal">
+    <div class="glass spot cucina reveal">
       <h2>Cucina mediterranea, a tavola e a buffet.</h2>
       <dl class="facts">
         <div><dt>Menu</dt><dd>Opzioni fisse, con la possibilità di alternare le portate.</dd></div>
@@ -154,17 +182,52 @@
     </div>
   </section>
 
+  <!-- RICHIESTA EVENTO -->
+  <section class="block wrap" id="richiesta" data-bg="5">
+    <div class="glass spot request reveal">
+      <div class="req-intro">
+        <span class="kicker">Richiesta evento</span>
+        <h2>Raccontaci la tua festa.</h2>
+        <p class="muted">Compila i dati principali: il messaggio si apre su WhatsApp già scritto, ti basta inviarlo. Ti rispondiamo per organizzare la visita.</p>
+      </div>
+      <form class="req-form" id="req" novalidate>
+        <label>Nome
+          <input type="text" name="nome" autocomplete="name" required>
+        </label>
+        <label>Tipo di evento
+          <select name="tipo" id="req-tipo">
+            <option>Matrimonio</option>
+            <option>Battesimo o comunione</option>
+            <option>Compleanno o anniversario</option>
+            <option>Altra occasione</option>
+          </select>
+        </label>
+        <label>Data indicativa
+          <input type="date" name="data">
+        </label>
+        <label>Numero di ospiti
+          <input type="number" name="ospiti" min="1" inputmode="numeric" placeholder="es. 80">
+        </label>
+        <label class="wide">Note (facoltative)
+          <textarea name="note" rows="3" placeholder="Intolleranze, orari, richieste particolari"></textarea>
+        </label>
+        <button class="btn btn-solid btn-shimmer wide" type="submit">Invia su WhatsApp <span class="btn-arrow" aria-hidden="true">&#8599;</span></button>
+        <p class="form-msg wide" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
   <!-- CONTATTI -->
   <section class="block wrap" id="contatti" data-bg="5">
     <div class="contatti">
-      <div class="glass contact-card reveal">
+      <div class="glass spot contact-card reveal">
         <h2>Vieni a vedere lo spazio.</h2>
         <p class="muted">Visite e feste si organizzano su prenotazione telefonica.</p>
         <a href="tel:+393397071801" class="phone">339 707 1801</a>
         <ul class="social">
-          <li><a class="chip" href="https://wa.me/393397071801" rel="noopener"><img src="https://cdn.simpleicons.org/whatsapp/ece8e1" alt="" width="20" height="20">WhatsApp</a></li>
-          <li><a class="chip" href="https://www.instagram.com/borgoinfioreterlizzi/" rel="noopener"><img src="https://cdn.simpleicons.org/instagram/ece8e1" alt="" width="20" height="20">Instagram</a></li>
-          <li><a class="chip" href="https://www.facebook.com/borgoinfioreterlizzi/" rel="noopener"><img src="https://cdn.simpleicons.org/facebook/ece8e1" alt="" width="20" height="20">Facebook</a></li>
+          <li><a class="chip" href="https://wa.me/393397071801" rel="noopener">WhatsApp</a></li>
+          <li><a class="chip" href="https://www.instagram.com/borgoinfioreterlizzi/" rel="noopener">Instagram</a></li>
+          <li><a class="chip" href="https://www.facebook.com/borgoinfioreterlizzi/" rel="noopener">Facebook</a></li>
         </ul>
         <address>
           SP 56 km 7,070 (Molfetta - Ruvo di Puglia)<br>70038 Terlizzi (BA)
@@ -182,11 +245,18 @@
 
 <footer class="footer">
   <div class="wrap glass-bar footer-inner">
-    <a href="#top" class="wordmark"><span class="logo-circle logo-sm"><img src="assets/logo%20grezzo.webp" alt="" width="44" height="44"></span>Borgo in Fiore</a>
+    <a href="#top" class="wordmark"><span class="logo-circle logo-sm"><img src="assets/img/logo.webp" alt="" width="44" height="44"></span>Borgo in Fiore</a>
     <p>&copy; <span id="year">2026</span> Borgo in Fiore, Terlizzi (BA)</p>
   </div>
 </footer>
 
-<script src="js/script.js"></script>
+<!-- Barra azioni fissa, solo su telefono -->
+<nav class="dock" aria-label="Azioni rapide">
+  <a class="dock-btn" href="tel:+393397071801"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>Chiama</a>
+  <a class="dock-btn" href="https://wa.me/393397071801" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H9l-4.500 3.600A.5.5 0 0 1 4 20.200V17a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/></svg>WhatsApp</a>
+  <a class="dock-btn dock-main" href="#richiesta">Richiedi evento</a>
+</nav>
+
+<script src="js/script.js?v=5" defer></script>
 </body>
 </html>
