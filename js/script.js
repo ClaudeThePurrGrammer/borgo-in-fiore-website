@@ -38,7 +38,10 @@
         desc.style.animation = "none"; void desc.offsetWidth; desc.style.animation = "";
       }
       // il tipo scelto passa al modulo di richiesta
-      if (fromUser && tipo && b.dataset.tipo) tipo.value = b.dataset.tipo;
+      if (fromUser && tipo && b.dataset.tipo) {
+        tipo.value = b.dataset.tipo;
+        tipo.dispatchEvent(new Event("change"));
+      }
     });
   }
   if (evs.length) pick(0, false);
@@ -99,14 +102,30 @@
   var form = $("#req");
   if (form) {
     var msg = $(".form-msg", form);
+    var altroWrap = $("#req-altro-wrap");
+    var altro = $("#req-altro");
+    var sel = $("#req-tipo");
+    function syncAltro() {
+      var on = sel.value === "Altra occasione";
+      altroWrap.hidden = !on;
+      altro.required = on;
+    }
+    sel.addEventListener("change", syncAltro);
+    syncAltro();
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var f = form.elements;
       var nome = f.nome.value.trim();
       f.nome.setAttribute("aria-invalid", nome ? "false" : "true");
       if (!nome) { msg.textContent = "Scrivi il tuo nome per continuare."; f.nome.focus(); return; }
+      var tipoTxt = f.tipo.value;
+      if (tipoTxt === "Altra occasione") {
+        tipoTxt = f.altro.value.trim();
+        f.altro.setAttribute("aria-invalid", tipoTxt ? "false" : "true");
+        if (!tipoTxt) { msg.textContent = "Scrivi il nome della festa per continuare."; f.altro.focus(); return; }
+      }
       var righe = ["Buongiorno, sono " + nome + "."];
-      righe.push("Vorrei informazioni per: " + f.tipo.value + ".");
+      righe.push("Vorrei informazioni per: " + tipoTxt + ".");
       if (f.data.value) {
         var p = f.data.value.split("-");
         righe.push("Data indicativa: " + p[2] + "/" + p[1] + "/" + p[0] + ".");

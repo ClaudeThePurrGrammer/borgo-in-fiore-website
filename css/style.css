@@ -237,6 +237,8 @@ address { font-style: normal; color: var(--muted); }
 .req-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .req-form label { display: grid; gap: 0.4rem; font-size: 0.9rem; color: var(--muted); }
 .req-form .wide { grid-column: 1 / -1; }
+.req-form [hidden] { display: none; }
+.req-form input[aria-invalid="true"]#req-altro { border-color: #e88b8b; }
 .req-form input, .req-form select, .req-form textarea {
   width: 100%; padding: 0.8rem 1rem; border-radius: 14px; font: inherit; font-size: 1rem; color: var(--text);
   background: rgba(255, 255, 255, 0.07); border: 1px solid var(--line); color-scheme: dark;
@@ -383,4 +385,100 @@ address { font-style: normal; color: var(--muted); }
 @media (max-width: 380px) {
   .dock-btn { font-size: 0.82rem; gap: 0.3rem; }
   .dock-btn svg { display: none; }
+}
+
+/* ===== Telefono v2: navbar piena su due righe, barra azioni piu' spaziata ===== */
+@media (max-width: 860px) {
+  html { scroll-padding-top: 8rem; }
+  .burger { display: none !important; }
+  .nav { flex-wrap: wrap; align-items: center; gap: 0.15rem 0.5rem; padding: 0.4rem 0.5rem 0.2rem; border-radius: 26px; }
+  .nav .btn { margin-left: auto; }
+  /* i cinque link restano sempre visibili, distribuiti su tutta la larghezza */
+  .nav-links, .nav-links.open { position: static; order: 3; flex: 1 0 100%; flex-direction: row; justify-content: space-between; gap: 0; padding: 0.15rem 0.35rem 0.3rem; margin: 0; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; font-size: 0.9rem; opacity: 1; visibility: visible; transform: none; transition: none; }
+  .nav-links li { flex: 1 1 0; text-align: center; }
+  .nav-links a { padding: 0.65rem 0.1rem; white-space: nowrap; }
+  .nav-links a::after { display: block; inset: auto 22% 0.25rem; }
+
+  /* barra azioni: icona sopra, etichetta sotto, piu' aria tra i pulsanti */
+  .dock { grid-template-columns: 1fr 1fr 1.3fr; gap: 0.6rem; padding: 0.55rem; border-radius: 28px; }
+  .dock-btn { flex-direction: column; gap: 0.3rem; min-height: 3.6rem; padding: 0.5rem 0.4rem; border-radius: 20px; font-size: 0.78rem; line-height: 1.1; text-align: center; }
+  .dock-btn svg { width: 22px; height: 22px; }
+  .dock-main { font-size: 0.9rem; }
+  body { padding-bottom: calc(5.6rem + env(safe-area-inset-bottom)); }
+}
+@media (max-width: 380px) {
+  .dock-btn svg { display: block; }
+  .dock-btn { font-size: 0.74rem; }
+}
+
+@media (max-width: 380px) { .nav-links { font-size: 0.84rem; } }
+
+/* ===== Compatibilita' dispositivi: fallback, tablet, orizzontale, schermi molto stretti ===== */
+/* browser senza unita' dvh (iOS < 15.4): altezza piena con vh */
+.hero { min-height: 100vh; min-height: 100dvh; }
+.block { min-height: 60vh; min-height: 60dvh; }
+
+/* tablet in verticale e telefoni in orizzontale (560-860px): barra su una riga, azioni centrate */
+@media (min-width: 560px) and (max-width: 860px) {
+  html { scroll-padding-top: 6rem; }
+  .nav { flex-wrap: nowrap; width: fit-content; max-width: 100%; margin-inline: auto; border-radius: 999px; padding: 0.4rem 0.5rem; gap: 1rem; }
+  .nav .btn { margin-left: 0; }
+  .nav-links, .nav-links.open { flex: 0 1 auto; order: 0; width: auto; padding: 0; border-top: 0; justify-content: flex-start; gap: clamp(0.9rem, 2.4vw, 1.6rem); }
+  .nav-links li { flex: 0 0 auto; }
+  .nav-links a { padding: 0.45rem 0; }
+  .nav .btn .lg { display: inline; }
+  .dock { left: 50%; right: auto; width: min(520px, calc(100% - 1.3rem)); transform: translateX(-50%); }
+  body:has(input:focus, textarea:focus, select:focus) .dock { transform: translate(-50%, 150%); }
+  .wrap { width: min(100% - 3rem, 760px); }
+  .hero-copy { width: min(100% - 3rem, 760px); }
+}
+
+/* telefoni in orizzontale: poca altezza, quindi barra compatta, niente barra azioni */
+@media (max-height: 520px) and (orientation: landscape) {
+  html { scroll-padding-top: 5rem; }
+  .nav-wrap { inset: 0.4rem 0 auto; }
+  .logo-circle { width: 44px; height: 44px; padding: 7px; }
+  .dock { display: none; }
+  body { padding-bottom: 0; }
+  .hero { min-height: 100vh; min-height: 100dvh; }
+  .hero-copy { padding-block: 5.5rem 1.25rem; gap: 0.7rem; }
+  .hero h1 { font-size: clamp(1.8rem, 6vw, 2.8rem); }
+  .actions { flex-direction: row; width: auto; }
+  .actions .btn { width: auto; min-height: 0; }
+  .block { min-height: 0; padding-block: 1.5rem; }
+  .events { height: max(78dvh, 360px); }
+  .ev-list { grid-template-columns: repeat(4, 1fr); }
+  .ev-desc { font-size: 1.15rem; }
+  .catalog .item, .catalog .item.on { flex-basis: 46%; }
+}
+
+/* schermi molto stretti (pieghevoli chiusi, 280-340px) */
+@media (max-width: 340px) {
+  .nav { padding-inline: 0.35rem; }
+  .nav-links, .nav-links.open { padding-inline: 0; }
+  .nav-links, .nav-links.open { font-size: 0.78rem; }
+  .nav-links a::after { inset: auto 10% 0.25rem; }
+  .logo-circle { width: 40px; height: 40px; padding: 6px; }
+  .nav .btn { padding: 0.5rem 0.75rem; font-size: 0.78rem; }
+  .dock { gap: 0.4rem; padding: 0.4rem; left: 0.4rem; right: 0.4rem; }
+  .dock-btn { font-size: 0.7rem; padding-inline: 0.2rem; }
+  .dock-main { font-size: 0.78rem; }
+  .wrap, .hero-copy { width: calc(100% - 1.5rem); }
+  .glass.intro, .request, .cucina, .contact-card { padding: 1rem; }
+  .btn { padding-inline: 1.1rem; }
+}
+
+/* il contenuto della hero non deve finire sotto la barra azioni */
+@media (max-width: 860px) {
+  .hero-copy { padding-bottom: calc(6.4rem + env(safe-area-inset-bottom)); }
+}
+@media (min-width: 560px) and (max-width: 860px) {
+  .actions { flex-direction: row; width: auto; }
+  .actions .btn { width: auto; }
+}
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero-copy { padding-bottom: 1.25rem; }
+}
+@media (max-width: 340px) {
+  .nav-links, .nav-links.open { font-size: 0.72rem; }
 }
